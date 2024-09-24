@@ -36,6 +36,29 @@
         button:hover {
             background-color: #ff9966;
         }
+        #credits {
+            font-size: 20px;
+            color: #333;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: -100%;
+        }
+        #credits img {
+            width: 200px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 50%;
+        }
+        /* Keyframes for credits scroll, dynamically adjusted in JavaScript */
+        @keyframes scrollUp {
+            0% {
+                bottom: -100%;
+            }
+            100% {
+                bottom: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -48,6 +71,14 @@
             <source src="Download.mp4" type="video/mp4">
             Your browser does not support the video element.
         </video>
+        <div id="credits">
+            <img src="LLONE.jpg" alt="Celebrants Image">
+            <p>Directed by: JUDE DWIGHT JIMENEZ</p>
+            <p>Starring: LLONE DELLOSA</p>
+            <p>Produced by: WALTON LONEZA</p>
+            <p>Sound producer: MARK JOHN OLIVA</p>
+            <p>Happy Birthday to the Best Person Ever!</p>
+        </div>
     </div>
 
     <script>
@@ -59,6 +90,18 @@
             // Play the birthday video
             var video = document.getElementById('birthday-video');
             video.play();
+
+            // Get the duration of the video
+            video.onplay = function() {
+                var duration = video.duration;
+
+                // Apply the scrolling credits with the same duration as the video
+                var credits = document.getElementById('credits');
+                credits.style.animation = `scrollUp ${duration}s linear forwards`;
+
+                // Start the credits scroll when the video starts playing
+                credits.style.display = 'block';
+            };
         }
     </script>
 </body>
