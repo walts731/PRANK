@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #surprise-container {
+            display: none;
+            text-align: center;
+        }
+        #surprise-message {
+            font-size: 24px;
+            color: #ff0066;
+            margin-bottom: 20px;
+        }
+        #birthday-video {
+            width: 640px;  /* Larger video width */
+            height: 360px; /* Larger video height */
+            margin: 0 auto;  /* Center the video */
+            display: block;  /* Ensure video is a block element */
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff9966;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the button for a Birthday Surprise!</h1>
+    <button onclick="playSurprise()">🎉 Click Me 🎉</button>
+
+    <div id="surprise-container">
+        <div id="surprise-message">Happy Birthday! 🎂🎉</div>
+        <video id="birthday-video" controls>
+            <source src="Download.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+    </div>
+
+    <script>
+        function playSurprise() {
+            // Display the container with both message and video
+            var container = document.getElementById('surprise-container');
+            container.style.display = 'block';
+
+            // Play the birthday video
+            var video = document.getElementById('birthday-video');
+            video.play();
+        }
+    </script>
+</body>
+</html>
